@@ -9,7 +9,7 @@ else:
 f = open(file_path, 'r')
 content = f.read()
 
-with_sign_pattern = r"\$\d+[\d,\.]*"
+with_sign_pattern = r"\$\d[\d,]*(?:\.\d+)?"
 with_dollars_pattern = r"\d[\d,\.]*(?:\s(?:dollars?|cents?))(?:\sand\s\d[\d,\.]*\scents?)?"
 
 number_word = r"(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion)"
@@ -22,7 +22,5 @@ list += re.findall(with_word_pattern, content, flags=re.IGNORECASE)
 
 for i in list:
     print(i)
-
-
 
 
